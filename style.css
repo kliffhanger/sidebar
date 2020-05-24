@@ -2,9 +2,22 @@
 	font-size: 16px;
 	font-family: "Noto Sans KR", sans-serif;
 	--text-primary: #b6b6b6;
-	--text-seconary: #ececec;
+	--text-secondary: #ececec;
 	--bg-primary: #23232e;
 	--bg-secondary: #141418;
+	--transition-speed: 600ms;
+}
+
+body::-webkit-scrollbar {
+	width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+	background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+	background: #6649b8;
 }
 
 body {
@@ -24,6 +37,7 @@ main {
 	height: 100vh;
 	position: fixed;
 	background-color: var(--bg-primary);
+	transition: width 200ms ease;
 }
 
 .navbar-nav {
@@ -50,6 +64,8 @@ main {
 	height: 5rem;
 	color: var(--text-primary);
 	text-decoration: none;
+	filter: grayscale(100%) opacity(0.7);
+	transition: var(--transition-speed);
 }
 
 .link-text {
@@ -64,9 +80,36 @@ main {
 }
 
 .navbar:hover {
-	width: 16rem;
+	width: 20rem;
 }
 
 .navbar:hover .link-text {
 	display: block;
+}
+
+.nav-link:hover {
+	filter: grayscale(0%) opacity(1);
+	background: var(--bg-secondary);
+	color: var(--text-secondary);
+}
+
+.logo {
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 1rem;
+	text-align: center;
+	color: var(--text-secondary);
+	background: var(--bg-secondary);
+	font-size: 1.5rem;
+	letter-spacing: 0.3ch;
+	width: 100%;
+}
+
+.logo svg {
+	transform: rotate(0deg);
+	transition: var(--transition-speed);
+}
+
+.navbar:hover .logo svg {
+	transform: rotate(-180deg);
 }
